@@ -59,4 +59,4 @@ class BaseModel:
     def __str__(self):
         """Return a printable string of the object"""
         return "[{}] ({}) {}".format(
-                BaseModel.__name__, self.id, self.__dict__)
+                self.__class__.__name__, self.id, self.__dict__)
