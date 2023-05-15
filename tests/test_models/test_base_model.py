@@ -74,10 +74,10 @@ class TestBase(unittest.TestCase):
 
     def test_str(self):
         """ Testing object string representation """
-        self.assertTrue("__str__" in dir(self.ins))
-        self.assertTrue(type(self.ins.__str__()) is str)
-        temp = self.ins.__str__()
-        self.assertNotEqual(temp, None)
+        aux = BaseModel()
+        tmp = str(aux)
+        self.assertEqual(tmp, '[' + aux.__class__.__name__ + '] (' +
+                aux.id + ') ' + str(aux.__dict__))
 
 if __name__ == "__main__":
     unittest.main()
