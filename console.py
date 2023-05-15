@@ -185,7 +185,7 @@ class HBNBCommand(cmd.Cmd):
         if dotCommand in HBNBCommand.dot_commands:
             eval(
                     HBNBCommand.dot_commands[dotCommand] + "({})"
-                    .format("'User', " + cmdArgs))
+                    .format("'State', " + cmdArgs))
 
     def do_City(self, args):
         """ Parse City functions """
@@ -194,7 +194,7 @@ class HBNBCommand(cmd.Cmd):
         if dotCommand in HBNBCommand.dot_commands:
             eval(
                     HBNBCommand.dot_commands[dotCommand] + "({})"
-                    .format("'User', " + cmdArgs))
+                    .format("'City', " + cmdArgs))
 
     def do_Amenity(self, args):
         """ Parse Amenity functions """
@@ -203,7 +203,7 @@ class HBNBCommand(cmd.Cmd):
         if dotCommand in HBNBCommand.dot_commands:
             eval(
                     HBNBCommand.dot_commands[dotCommand] + "({})"
-                    .format("'User', " + cmdArgs))
+                    .format("'Amenity', " + cmdArgs))
 
     def do_Place(self, args):
         """ Parse Place functions """
@@ -212,7 +212,7 @@ class HBNBCommand(cmd.Cmd):
         if dotCommand in HBNBCommand.dot_commands:
             eval(
                     HBNBCommand.dot_commands[dotCommand] + "({})"
-                    .format("'User', " + cmdArgs))
+                    .format("'Place', " + cmdArgs))
 
     def do_Review(self, args):
         """ Parse Review functions """
@@ -221,7 +221,16 @@ class HBNBCommand(cmd.Cmd):
         if dotCommand in HBNBCommand.dot_commands:
             eval(
                     HBNBCommand.dot_commands[dotCommand] + "({})"
-                    .format("'User', " + cmdArgs))
+                    .format("'Review', " + cmdArgs))
+
+    def do_BaseModel(self, args):
+        """ Parse BaseModel functions """
+        cmdArgs = args[args.find("(") + 1:args.find(")")]
+        dotCommand = args.replace(cmdArgs, "")
+        if dotCommand in HBNBCommand.dot_commands:
+            eval(
+                    HBNBCommand.dot_commands[dotCommand] + "({})"
+                    .format("'BaseModel', " + cmdArgs))
 
 
 if __name__ == "__main__":
