@@ -32,6 +32,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """End of the file"""
+        print()
         return True
 
     def emptyline(self):
@@ -131,6 +132,96 @@ class HBNBCommand(cmd.Cmd):
                             print("** attribute name missing **")
                 else:
                     print("** instance id missing **")
+
+    @staticmethod
+    def all_class(*args):
+        """print all instances in args"""
+        HBNBCommand().do_all(args[0])
+
+    @staticmethod
+    def count_class(*args):
+        """Conunt the number of objects"""
+        objs = list(storage.all().values())
+        objs = filter(
+                lambda x: type(x) is
+                class_ref.get(args[0]), objs)
+        print(len(list(objs)))
+
+    @staticmethod
+    def show_class(*args):
+        """ show instances based on the class name and id """
+        HBNBCommand().do_show(" ".join(args))
+
+    @staticmethod
+    def destroy_class(*args):
+        """ Destroy instances based on the class name and ids """
+        HBNBCommand().do_destroy(" ".join(args))
+
+    @staticmethod
+    def update_class(*args):
+        """ Updates intances """
+        HBNBCommand().do_update(" ".join(args))
+
+    dot_commands = {
+            ".all()": "HBNBCommand.all_class",
+            ".count()": "HBNBCommand.count_class",
+            ".show()": "HBNBCommand.show_class",
+            ".destroy()": "HBNBCommand.destroy_class",
+            ".update()": "HBNBCommand.update_class"}
+
+    def do_User(self, args):
+        """ Parse User functions """
+        cmdArgs = args[args.find("(") + 1:args.find(")")]
+        dotCommand = args.replace(cmdArgs, "")
+        if dotCommand in HBNBCommand.dot_commands:
+            eval(
+                    HBNBCommand.dot_commands[dotCommand] + "({})"
+                    .format("'User', " + cmdArgs))
+
+    def do_State(self, args):
+        """ Parse State functions """
+        cmdArgs = args[args.find("(") + 1:args.find(")")]
+        dotCommand = args.replace(cmdArgs, "")
+        if dotCommand in HBNBCommand.dot_commands:
+            eval(
+                    HBNBCommand.dot_commands[dotCommand] + "({})"
+                    .format("'User', " + cmdArgs))
+
+    def do_City(self, args):
+        """ Parse City functions """
+        cmdArgs = args[args.find("(") + 1:args.find(")")]
+        dotCommand = args.replace(cmdArgs, "")
+        if dotCommand in HBNBCommand.dot_commands:
+            eval(
+                    HBNBCommand.dot_commands[dotCommand] + "({})"
+                    .format("'User', " + cmdArgs))
+
+    def do_Amenity(self, args):
+        """ Parse Amenity functions """
+        cmdArgs = args[args.find("(") + 1:args.find(")")]
+        dotCommand = args.replace(cmdArgs, "")
+        if dotCommand in HBNBCommand.dot_commands:
+            eval(
+                    HBNBCommand.dot_commands[dotCommand] + "({})"
+                    .format("'User', " + cmdArgs))
+
+    def do_Place(self, args):
+        """ Parse Place functions """
+        cmdArgs = args[args.find("(") + 1:args.find(")")]
+        dotCommand = args.replace(cmdArgs, "")
+        if dotCommand in HBNBCommand.dot_commands:
+            eval(
+                    HBNBCommand.dot_commands[dotCommand] + "({})"
+                    .format("'User', " + cmdArgs))
+
+    def do_Review(self, args):
+        """ Parse Review functions """
+        cmdArgs = args[args.find("(") + 1:args.find(")")]
+        dotCommand = args.replace(cmdArgs, "")
+        if dotCommand in HBNBCommand.dot_commands:
+            eval(
+                    HBNBCommand.dot_commands[dotCommand] + "({})"
+                    .format("'User', " + cmdArgs))
 
 
 if __name__ == "__main__":
