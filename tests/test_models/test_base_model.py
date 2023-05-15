@@ -76,6 +76,8 @@ class TestBase(unittest.TestCase):
         """ Testing object string representation """
         self.assertTrue("__str__" in dir(self.ins))
         self.assertTrue(type(self.ins.__str__()) is str)
+        temp = self.ins.__str__()
+        self.assertNotEqual(temp, None)
 
 if __name__ == "__main__":
     unittest.main()
