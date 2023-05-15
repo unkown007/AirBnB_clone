@@ -66,11 +66,16 @@ class TestBase(unittest.TestCase):
         self.assertTrue(isinstance(storage, FileStorage))
 
     def test_reaload(self):
-        """ Testing reloag of objs in file.json """
+        """ Testing reload of objs in file.json """
         self.ins.save()
         storage.reload()
         dic = storage.all()
         self.assertTrue(len(dic) != 0)
+
+    def test_str(self):
+        """ Testing object string representation """
+        self.assertTrue("__str__" in dir(self.ins))
+        self.assertTrue(type(self.ins.__str__()) is str)
 
 if __name__ == "__main__":
     unittest.main()
