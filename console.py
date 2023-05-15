@@ -62,7 +62,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 for key, value in storage.all().items():
-                    if args[1] == value.id:
+                    if args[0] == value.__class__.__name__ and\
+                            args[1] == value.id:
                         print(value)
                         return
                 print("** no instance found **")
@@ -79,7 +80,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 for key, value in storage.all().items():
-                    if args[1] == value.id:
+                    if args[0] == value.__class__.__name__ and\
+                            args[1] == value.id:
                         del storage.all()[key]
                         storage.save()
                         return
