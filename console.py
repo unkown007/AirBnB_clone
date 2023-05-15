@@ -160,7 +160,12 @@ class HBNBCommand(cmd.Cmd):
     @staticmethod
     def update_class(*args):
         """ Updates intances """
-        HBNBCommand().do_update(" ".join(args))
+        if len(args) == 3 and type(args[2]) is dict:
+            for key, value in args[2].items():
+                aux = list(args[0:2] + [key, str(value)])
+                HBNBCommand().do_update(" ".join(aux))
+        else:
+            HBNBCommand().do_update(" ".join(args))
 
     dot_commands = {
             ".all()": "HBNBCommand.all_class",
