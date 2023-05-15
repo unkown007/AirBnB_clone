@@ -162,7 +162,7 @@ class HBNBCommand(cmd.Cmd):
         """ Updates intances """
         if len(args) == 3 and type(args[2]) is dict:
             for key, value in args[2].items():
-                aux = list(args[0:2] + [key, str(value)])
+                aux = list(args[0:2]) + [key, str(value)]
                 HBNBCommand().do_update(" ".join(aux))
         else:
             HBNBCommand().do_update(" ".join(args))
