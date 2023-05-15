@@ -112,12 +112,12 @@ class HBNBCommand(cmd.Cmd):
         else:
             args = args.split()
             if args[0] not in class_ref:
-                print("** class doesn't exist**")
+                print("** class doesn't exist **")
             else:
                 if len(args) > 1:
                     key = args[0] + '.' + args[1]
                     if key not in storage.all():
-                        print("** not instance found **")
+                        print("** no instance found **")
                     else:
                         if len(args) > 2:
                             if len(args) > 3:
