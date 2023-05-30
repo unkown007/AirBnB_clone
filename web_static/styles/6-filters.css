@@ -29,9 +29,10 @@
 
 .filters .locations,
 .filters .amenities {
-    display: inline-block;
+    display: block;
     height: 100%;
     width: 25%;
+	float: left;
 }
 
 .filters .locations {
@@ -53,4 +54,37 @@
 	margin-bottom: 14px;
 	margin-top: 0px;
 	margin-left: 30px;
+}
+
+.filters .popover {
+	list-style: none;
+	width: 100%;
+	padding: 0;
+	background-color: #fafafa;
+	border: 1px solid #dddddd;
+	border-radius: 4px;
+	margin: 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display: none;
+	z-index: 1;
+}
+
+.filters .locations:hover .popover,
+.filters .amenities:hover .popover {
+	display: block;
+}
+
+.filters .popover h2 {
+	font-size: 16px;
+}
+
+.filters .popover ul {
+		list-style: none;
+}
+
+.filters .popover h2,
+.filters .amenities li {
+	margin-left: 30px;
+	margin-bottom: 5px;
 }
